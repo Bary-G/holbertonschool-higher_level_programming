@@ -1,2 +1,6 @@
 #!/usr/bin/python3
-"""Print ASCII alphabet without q and e"""
+"""Print hexadecimal value of a number"""
+num = 0
+while num <= 98:
+    print(num, "=", format(hex(num)))
+    num = num + 1
