@@ -2,6 +2,8 @@
 def islower(c):
     if c != "":
         if 'a' <= c <= 'z':
-           return True
+            return True
         else:
             return False
+    else:
+        pass
