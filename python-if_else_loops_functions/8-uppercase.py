@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-def uppercase(str):
+def uppercase(text):
     """Show texting in uppercase"""
     result = ""
-    for i in str:
+    for i in text:
         if 'a' <= i <= 'z':
             result += chr(ord(i) - 32)
         else:
             result += i
-    print(format(f"{result}"))
+    print(str.format(f"{result}"))
