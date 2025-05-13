@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import __main__
 from calculator_1 import *
 """Add 2 values by importing function from another file"""
 a = 15
