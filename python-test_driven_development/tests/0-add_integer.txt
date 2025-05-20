@@ -6,7 +6,7 @@ it correctly adds integers, handles float inputs, and raises errors when
 given invalid arguments.
 
 To run the tests, use:
-    python3 -m doctest add_integer_doctest.txt
+    python3 -m doctest ./0-add_integer.txt
 
 >>> from add_integer import add_integer
 >>> add_integer(2, 3)

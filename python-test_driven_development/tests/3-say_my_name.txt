@@ -1,0 +1,56 @@
+"""
+Doctest for the say_my_name function.
+
+This module contains test cases for the say_my_name function, ensuring 
+it correctly print first_name and last_name, and raises errors when 
+given invalid arguments.
+
+To run the tests, use:
+python3 -m doctest -v ./3-say_my_name.txt
+
+>>> from say_my_name import say_my_name
+>>> say_my_name("Alice", "Smith")
+My name is Alice Smith
+
+>>> say_my_name("Bob")
+My name is Bob (last name is empty)
+
+>>> say_my_name("Charlie", "")
+My name is Charlie (explicit empty last name)
+
+>>> say_my_name(123, "Smith")
+first_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+
+>>> say_my_name("Alice", 456)
+last_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+
+>>> say_my_name(None, "Smith")
+first_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+
+>>> say_my_name("Alice", None)
+last_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+
+>>> say_my_name(["John"], "Doe")
+first_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+
+>>> say_my_name("John", {"last": "Doe"})
+last_name must be a string
+Traceback (most recent call last):
+...
+TypeError
+"""
