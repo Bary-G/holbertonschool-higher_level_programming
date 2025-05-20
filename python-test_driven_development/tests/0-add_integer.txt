@@ -1,0 +1,28 @@
+"""
+Doctest for the add_integer function.
+
+This module contains test cases for the add_integer function, ensuring 
+it correctly adds integers, handles float inputs, and raises errors when 
+given invalid arguments.
+
+To run the tests, use:
+    python3 -m doctest add_integer_doctest.txt
+
+>>> from add_integer import add_integer
+>>> add_integer(2, 3)
+5
+>>> add_integer(10, -5)
+5
+>>> add_integer(1.5, 2.5)  # Floats should be converted to integers before addition
+3
+>>> add_integer(100)  # Uses default value for b (98)
+198
+>>> add_integer("hello", 5)  # Invalid input type
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(10, "world")  # Invalid input type
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+"""
