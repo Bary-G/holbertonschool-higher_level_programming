@@ -8,7 +8,7 @@ given invalid arguments.
 To run the tests, use:
     python3 -m doctest ./0-add_integer.txt
 
->>> from add_integer import add_integer
+>>> from ('0-add_integer') import add_integer
 >>> add_integer(2, 3)
 5
 >>> add_integer(10, -5)

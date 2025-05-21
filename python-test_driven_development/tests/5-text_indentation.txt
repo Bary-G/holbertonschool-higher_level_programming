@@ -1,0 +1,50 @@
+"""
+Doctest for the text_indentation function.
+
+This module contains test cases for the text_indentation function, ensuring 
+it correctly indent a string, and raises errors when 
+given invalid arguments.
+
+To run the tests, use:
+python3 -m doctest -v ./5-text_indentation.txt
+
+>>> from ('5-text_indentation') import text_indentation
+>>> text_indentation("Hello. How are you? I'm fine:")
+Hello.
+
+How are you?
+
+I'm fine:
+
+>>> text_indentation("  Hello . How are you?  I'm fine :  ")
+Hello.
+
+How are you?
+
+I'm fine:
+
+>>> text_indentation("Hi! This is a test. Let's see? Does it work:")
+Hi! This is a test.
+
+Let's see?
+
+Does it work:
+
+>>> text_indentation("This text has no punctuation")
+This text has no punctuation
+
+>>> text_indentation(42)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+
+>>> text_indentation(["Hello.", "How are you?"])
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+"""
