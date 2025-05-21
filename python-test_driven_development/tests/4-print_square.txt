@@ -1,0 +1,42 @@
+"""
+Doctest for the print_square function.
+
+This module contains test cases for the print_square function, ensuring 
+it correctly print a square with '#' character, and raises errors when 
+given invalid arguments.
+
+To run the tests, use:
+python3 -m doctest -v ./4-print_square.txt
+
+>>> from print_square import print_square
+>>> print_square(2)
+##
+##
+
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(1)
+#
+
+>>> print_square(0)
+
+
+>>> print_square("3")
+size must be an integer
+
+>>> print_square([4])
+size must be an integer
+
+>>> print_square(-5)
+size must be >= 0
+
+>>> print_square(3.5)
+size must be an integer
+
+>>> print_square(-2.7)
+size must be an integer
+"""
