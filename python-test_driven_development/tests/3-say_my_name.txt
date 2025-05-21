@@ -8,7 +8,7 @@ given invalid arguments.
 To run the tests, use:
 python3 -m doctest -v ./3-say_my_name.txt
 
->>> from say_my_name import say_my_name
+>>> from ('3-saw_my_name') import say_my_name
 >>> say_my_name("Alice", "Smith")
 My name is Alice Smith
 

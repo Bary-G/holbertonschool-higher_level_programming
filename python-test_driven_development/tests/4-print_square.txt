@@ -8,7 +8,7 @@ given invalid arguments.
 To run the tests, use:
 python3 -m doctest -v ./4-print_square.txt
 
->>> from 4-print_square import print_square
+>>> __import__('4-print_square').print_square
 >>> print_square(2)
 ##
 ##
