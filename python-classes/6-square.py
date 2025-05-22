@@ -42,14 +42,15 @@ class Square:
         Gets the position of the square.
         """
         return self._position
-    
+
     @position.setter
     def position(self, value):
         """
         Verifies and sets the position of the square.
         """
-        if (not isinstance(value, tuple) or len(value) != 2 or 
-            not all(isinstance(x, int) and x >= 0 for x in value)):
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not all(isinstance(x, int) and x >= 0 for x in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self._position = value
 
@@ -67,7 +68,7 @@ class Square:
             print("")
             return
 
-        print("\n" * self.position[1], end="")  # Vertical spacing
+        print("\n" * self.position[1], end="")
 
         for _ in range(self.size):
-            print(" " * self.position[0] + "#" * self.size)  # Horizontal spacing
+            print(" " * self.position[0] + "#" * self.size)
