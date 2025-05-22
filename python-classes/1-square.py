@@ -15,15 +15,15 @@ class Square:
         """
         Initializes the square with a given size.
         """
-        self.Square_size = size
+        self._Square_size = size
 
-    def Square_size(self):
+    def _Square_size(self):
         """
         Gets the size of the square.
         """
         return self._size
 
-    def Square_size(self, value):
+    def _Square_size(self, value):
         """
         Sets the size of the square with basic validation.
         """
