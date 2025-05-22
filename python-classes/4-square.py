@@ -29,7 +29,7 @@ class Square:
 
     def size(self, value):
         """
-        Sets the size of the square with basic validation.
+        Verify and sets the size of the square.
         """
         if not isinstance(value, int) or value < 0:
             raise ValueError
@@ -41,6 +41,4 @@ class Square:
         """
         if not isinstance(self.size, int):
             raise TypeError("size must be an integer")
-        elif self.size < 0:
-            raise ValueError("size must be >= 0")
         return self.size * self.size
