@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Module:
-Test cases for the Square class
+A Square class that represents... a square.
 """
 
 
