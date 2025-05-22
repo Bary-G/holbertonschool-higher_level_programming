@@ -15,7 +15,7 @@ class Square:
         """
         Initializes the square with a given size.
         """
-        if not isinstance(size, int):
+        if not isinstance(size, int) or not size:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
@@ -39,7 +39,7 @@ class Square:
         """
         Return the area of the square.
         """
-        if not isinstance(self.size, int):
+        if not isinstance(self.size, int) or not self.size:
             raise TypeError("size must be an integer")
         elif self.size < 0:
             raise ValueError("size must be >= 0")
