@@ -15,24 +15,25 @@ class Square:
         """
         Initializes the square with a given size.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
+        self._size = None
         self.size = size
 
+    @property
     def size(self):
         """
         Gets the size of the square.
         """
         return self._size
 
+    @size.setter
     def size(self, value):
         """
-        Verify and sets the size of the square.
+        Verifies and sets the size of the square.
         """
-        if not isinstance(value, int) or value < 0:
-            raise ValueError
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
         self._size = value
 
     def area(self):
