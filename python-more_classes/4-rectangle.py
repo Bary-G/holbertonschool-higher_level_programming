@@ -94,4 +94,3 @@ class Rectangle:
         Returns a string representation of the rectangle.
         """
         return f"Rectangle({self.width}, {self.height})"
-    
