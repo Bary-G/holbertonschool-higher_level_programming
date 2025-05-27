@@ -9,11 +9,9 @@ class MyList(list):
     """
     A class that inherits from list.
     """
+
     def print_sorted(self):
         """
-        A method that sorts a list in ascending order.
+        A method that sorts a list of integers in ascending order.
         """
-        if not all(isinstance(item, int) for item in self):
-            return None
         print(sorted(self))
-        return sorted(self)
