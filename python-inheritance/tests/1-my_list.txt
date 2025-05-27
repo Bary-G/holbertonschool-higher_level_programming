@@ -1,14 +1,14 @@
 """
-Doctest for the add_integer function.
+Doctest for the print_sorted function.
 
-This module contains test cases for the print_sorted method, ensuring 
+This module contains test method for the print_sorted method, ensuring 
 it correctly sort integers from a list, and raises errors when given
 non-integers arguments.
 
 To run the tests, use:
     python3 -m doctest ./1-my_list.txt
 
->>> from ('1-my_list') import print_sorted
+>>> from ('1-my_list') import 
 >>> MyList([5, 2, 9, 1, 7])
 [1, 2, 5, 7, 9]
 >>> MyList([])
