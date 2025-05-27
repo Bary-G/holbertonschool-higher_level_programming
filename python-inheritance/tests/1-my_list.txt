@@ -1,0 +1,28 @@
+"""
+Doctest for the add_integer function.
+
+This module contains test cases for the print_sorted method, ensuring 
+it correctly sort integers from a list, and raises errors when given
+non-integers arguments.
+
+To run the tests, use:
+    python3 -m doctest ./1-my_list.txt
+
+>>> from ('1-my_list') import print_sorted
+>>> MyList([5, 2, 9, 1, 7])
+[1, 2, 5, 7, 9]
+>>> MyList([])
+[]
+>>> MyList([3, 3, 3, 3])
+[3, 3, 3, 3]
+>>> MyList([1, 2, 3, 4, 5])
+[1, 2, 3, 4, 5]
+>>> MyList([9, 7, 5, 3, 1])
+[1, 3, 5, 7, 9]
+>>> MyList([-5, -1, -10, 2, 0])
+[-10, -5, -1, 0, 2]
+>>> MyList([1, 2, "three", 4])
+Traceback (most recent call last):
+...
+TypeError: List contains non-integer elements
+"""
