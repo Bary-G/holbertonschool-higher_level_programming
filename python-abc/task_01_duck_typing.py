@@ -45,7 +45,7 @@ class Circle(Shape):
         """
         Return the area of the circle.
         """
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius * self.radius
 
     def perimeter(self, adress):
         """
@@ -76,7 +76,7 @@ class Rectangle(Shape):
         """
         Return the perimeter (circumference) of the circle.
         """
-        return (self.width * self.height) * 2
+        return (self.width + self.height) * 2
 
 
 def shape_info(Shape):
@@ -84,7 +84,7 @@ def shape_info(Shape):
     Pass the shape info.
     """
     try:
-        print("Area: ", Shape.area(Shape))
-        print("Perimeter: ", Shape.perimeter(Shape))
+        print("Area:", Shape.area(Shape))
+        print("Perimeter:", Shape.perimeter(Shape))
     except AttributeError:
         raise Exception
