@@ -41,15 +41,15 @@ class Circle(Shape):
             raise ValueError("Radius must be a non-negative number")
         self.radius = radius
 
-    def area(self, adress):
+    def area(self):
         """
         Return the area of the circle.
         """
         return math.pi * self.radius * self.radius
 
-    def perimeter(self, adress):
+    def perimeter(self):
         """
-        Return the perimeter (circumference) of the circle.
+        Return the perimeter of the circle.
         """
         return 2 * math.pi * self.radius
 
@@ -66,13 +66,13 @@ class Rectangle(Shape):
         self.width = width
         self.height = height
 
-    def area(self, adress):
+    def area(self):
         """
         Return the area of the circle.
         """
         return self.width * self.height
 
-    def perimeter(self, adress):
+    def perimeter(self):
         """
         Return the perimeter (circumference) of the circle.
         """
@@ -84,7 +84,7 @@ def shape_info(Shape):
     Pass the shape info.
     """
     try:
-        print("Area:", Shape.area(Shape))
-        print("Perimeter:", Shape.perimeter(Shape))
+        print("Area:", Shape.area())
+        print("Perimeter:", Shape.perimeter())
     except AttributeError:
         raise Exception
