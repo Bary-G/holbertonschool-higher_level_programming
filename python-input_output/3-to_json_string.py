@@ -6,8 +6,10 @@ A file that runs Python functions.
 """
 
 
-def to_json_string(my_str):
+def to_json_string(my_obj):
     """
     A function that return a Python data structure into JSON string.
     """
-    return json.dumps(my_str)
+    if not my_obj:
+        return None
+    return json.dumps(my_obj)
