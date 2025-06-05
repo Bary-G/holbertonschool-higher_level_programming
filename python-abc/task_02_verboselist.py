@@ -1,14 +1,16 @@
 #!/usr/bin/python3
+from abc import ABC, abstractmethod
 """
 Module:
 A script that contains abstract classes.
 """
 
-class VerboseList(list):
+class VerboseList(ABC):
     """
     A class that notifies Python list class changes.
     """
 
+    @abstractmethod
     def append(self, item):
         """
         Print append notify.
