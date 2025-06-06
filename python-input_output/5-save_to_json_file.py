@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import json
 """
 Module:
 A file that runs Python functions.
 """
+import json
 
 
 def save_to_json_file(my_obj, filename):
