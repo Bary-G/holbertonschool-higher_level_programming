@@ -19,7 +19,7 @@ def convert_csv_to_json(filename):
 
         json_filename = filename.replace('.csv', '.json')
         with open(json_filename, mode='w', encoding='UTF8') as json_file:
-            json.dump(data, json_file, indent=4)
+            json.dump(data, json_file)
         return 0
     except FileNotFoundError:
         return 2
