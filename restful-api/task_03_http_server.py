@@ -32,7 +32,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
         elif self.path == "/info":
             self._send_response({"version": "1.0", "description": "A simple API built with http.server"})
         else:
-            self._send_response({"Endpoint not found"}, status_code=404)
+            self._send_response("Endpoint not found", status_code=404)
 
 
 PORT = 8000
