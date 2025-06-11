@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import json
-import http.server
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import socketserver
 """
 Module:
@@ -8,7 +8,7 @@ A Python script that runs functions.
 """
 
 
-class MyHandler(http.server.BaseHTTPRequestHandler):
+class MyHandler(BaseHTTPRequestHandler):
     def _send_response(self, response_data, status_code=200, content_type="application/json"):
         """
         Sends a simple text response back to the client.
