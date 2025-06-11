@@ -2,7 +2,6 @@
 import requests
 import csv
 import http.server
-import socketserver
 """
 Module:
 A Python script that runs functions.
@@ -23,8 +22,7 @@ def fetch_and_print_posts():
 
     if response.status_code == 200:
         json_data = response.json()
-        # Print only the titles of the first few posts
-        for post in json_data[:7]:  # Limiting to first 7 posts
+        for post in json_data[:7]:
             print(post["title"])
     else:
         print("Failed to fetch posts")
