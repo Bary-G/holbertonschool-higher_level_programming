@@ -37,5 +37,8 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
 
 PORT = 8000
 with socketserver.TCPServer(("0.0.0.0", PORT), MyHandler) as httpd:
-    print(f"Serving on port {PORT}")
-    httpd.serve_forever()
+    try:
+        print(f"Serving on port {PORT}")
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        httpd.shutdown()
