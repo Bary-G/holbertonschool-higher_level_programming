@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask import jsonify
+from flask import request
 """
 Module:
 A Python script that executes functions.
