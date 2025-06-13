@@ -8,7 +8,7 @@ A Python script that executes functions.
 """
 
 app = Flask(__name__)
-
+AP2I = {"version": "1.0", "description": "A simple API built with http.server"}
 
 users = {
     "jane":
@@ -22,6 +22,11 @@ users = {
 def home():
     """Returns a welcome message."""
     return "Welcome to the Flask API"
+
+
+@app.route('/info')
+def info():
+    return jsonify(AP2I)
 
 
 @app.route('/data')
