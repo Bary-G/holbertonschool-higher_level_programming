@@ -1,44 +1,58 @@
 #!/usr/bin/python3
-import json
-import http.server
-import socketserver
+from flask import Flask, jsonify, request
 """
 Module:
-A Python script that runs functions.
+A Python script that executes functions.
 """
 
-
-class MyHandler(http.server.BaseHTTPRequestHandler):
-    def _send_response(self, response_data, status_code=200, content_type="application/json"):
-        """
-        Sends a simple text response back to the client.
-        """
-        self.send_response(status_code)
-        self.send_header("Content-Type", content_type)
-        self.end_headers()
-        if isinstance(response_data, str):
-            self.wfile.write(response_data.encode("UTF8"))
-        else:
-            self.wfile.write(json.dumps(response_data).encode("UTF8"))
-
-    def do_GET(self):
-        """
-        Gets a simple dataset.
-        """
-        if self.path == "/":
-            self._send_response("Hello, this is a simple API!", content_type="text/plain")
-        elif self.path == "/data":
-            self._send_response({"name": "John", "age": 30, "city": "New York"})
-        elif self.path == "/info":
-            self._send_response({"version": "1.0", "description": "A simple API built with http.server"})
-        else:
-            self._send_response("Endpoint not found", status_code=404)
+app = Flask(__name__)
 
 
-PORT = 8000
-with socketserver.TCPServer(("0.0.0.0", PORT), MyHandler) as httpd:
-    try:
-        print(f"Serving on port {PORT}")
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        httpd.shutdown()
+users = {
+    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}
+}
+
+
+@app.route('/')
+def home():
+    """Returns a welcome message."""
+    return "Welcome to the Flask API"
+
+
+@app.route('/data')
+def get_usernames():
+    """Returns a list of all stored usernames."""
+    return jsonify(list(users.keys()))
+
+
+@app.route('/status')
+def status():
+    return "OK"
+
+
+@app.route('/users/<username>')
+def get_user(username):
+    """Returns the full object corresponding to the provided username."""
+    user = users.get(username)
+    if user:
+        return jsonify(user)
+    return jsonify({"error": "User not found"}), 404
+
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    """Parses incoming JSON data and adds a new user."""
+    data = request.get_json()
+    if not data or "username" not in data:
+        return jsonify({"error": "Invalid data"}), 400
+
+    username = data["username"]
+    if username in users:
+        return jsonify({"error": "User already exists"}), 409
+
+    users[username] = data
+    return jsonify({"message": "User added", "user": data}), 201
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
