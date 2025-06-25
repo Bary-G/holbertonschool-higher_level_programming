@@ -1,6 +1,6 @@
 -- first_table
 -- Create a new table
 CREATE TABLE IF NOT EXISTS first_table (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT,
     email VARCHAR(256)
 );
