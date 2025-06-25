@@ -1,6 +1,5 @@
 -- first_table
--- Create a new table
 CREATE TABLE IF NOT EXISTS first_table (
     id INT,
-    email VARCHAR(256)
+    name VARCHAR(256)
 );
