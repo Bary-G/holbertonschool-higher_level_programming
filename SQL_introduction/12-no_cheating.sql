@@ -1,4 +1,4 @@
 -- second_table
 UPDATE Bob
 SET score = 10
-WHERE name = Bob;
+WHERE name = 'Bob';
