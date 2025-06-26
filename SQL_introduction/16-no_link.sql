@@ -1,0 +1,4 @@
+-- second_table
+SELECT *
+FROM second_table
+WHERE name IS NOT NULL AND TRIM(name) != '';
