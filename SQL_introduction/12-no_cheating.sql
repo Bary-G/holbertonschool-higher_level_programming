@@ -1,4 +1,2 @@
 -- second_table
-UPDATE Bob
-SET score = 10
-WHERE name = 'Bob';
+UPDATE Bob SET score = 10 WHERE LOWER(name) = 'Bob';
