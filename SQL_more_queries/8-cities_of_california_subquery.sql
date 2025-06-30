@@ -1,0 +1,1 @@
+-- Create hbtn_0d_usa database and cities table
