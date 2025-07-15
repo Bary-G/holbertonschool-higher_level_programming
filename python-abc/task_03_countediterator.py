@@ -11,29 +11,19 @@ class CountedIterator(ABC):
     """
 
     @abstractmethod
-    def __init__(self, iter, iternum=0):
-        """
-        Print append notify.
-        """
-        super().append(item)
-        print(f"Added [{item}] to the list.")
+    def __init__(self, iterable):
+        self.iterable = iterable
+        self.index = 0
+        self.iternum = 0
 
-    def extend(self, x):
-        """
-        Print extend notify.
-        """
-        print(f"Extended the list with [{x}] items.")
+    def __iter__(self):
+        return self
 
-    def remove(self, item):
-        """
-        Print remove notify.
-        """
-        print(f"Removed [{item}] from the list.")
-        
-    def pop(self, index=-1):
-        """
-        Print pop notify.
-        """
-        item = super().pop(index)
-        print(f"Popped [{item}] from the list")
+    def __next__(self):
+        if self.index >= len(self.iterable):
+            raise StopIteration
+        item = self.iterable[self.index]
+        self.index = self.index + 1
+        self.iternum = self.iternum + 1
+        print(f"Iteration [{self.iternum}]: Current item is {item}")
         return item
