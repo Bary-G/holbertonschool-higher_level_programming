@@ -16,4 +16,4 @@ function checkArgs () {
   }
 }
 
-checkArgs()
+checkArgs();
