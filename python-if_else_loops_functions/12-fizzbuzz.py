@@ -1,3 +1,13 @@
 #!/usr/bin/python3
-for i in range(100):
-    print(f"{i}", end=" ")
+
+def fizzbuzz():
+    for number in range(100):
+        number = number + 1
+        if number % 3 == 0 and number % 5 == 0:
+            print("FizzBuzz", end=" ")
+        elif number % 5 == 0:
+            print("Buzz", end=" ")
+        elif number % 3 == 0:
+            print("Fizz", end=" ")
+        else:
+            print(number, end=" ")
