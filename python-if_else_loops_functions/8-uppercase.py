@@ -2,7 +2,7 @@
 
 def uppercase(str):
     """
-    A function that prints a string in uppercase followed by a new line.
+    A function that displays a string in uppercase followed by a new line.
     """
     newcharacter = ""
     linereturn = "\n"
