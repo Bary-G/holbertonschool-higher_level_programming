@@ -10,4 +10,4 @@ def print_matrix_integer(matrix=[[]]):
             if j == len(matrix[i]) - 1:
                 last_chr = ""
             print("{:d}".format(matrix[i][j]), end=last_chr)
-        print("{:d}".format("\n"), end="")
+        print("{}".format("\n"), end="")
