@@ -4,8 +4,8 @@ def replace_in_list(my_list, idx, element):
     """
     A function that replaces an element of a list at a specific position.
     """
-    if idx - 1 > len(my_list) or idx - 1 < 0:
+    if idx > len(my_list) + 1 or idx < 0:
         return None
     else:
-        my_list[idx - 1] = element
+        my_list[idx] = element
         return my_list
