@@ -12,4 +12,3 @@ def delete_at(my_list=[], idx=0):
         return my_list
     my_list = [obj for obj in my_list if obj != my_list[idx]]
     return my_list
-    
