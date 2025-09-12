@@ -20,13 +20,13 @@ def roman_to_int(roman_string):
         'V': 5,
         'I': 1
     }
-    prev_num = 0
+    prev_value = 0
     converted_num = 0
-    for prev_num in range(len(roman_string) -1):
-        for key, value in roman_dict.items():
-            if roman_string[prev_num] == key:
-                if prev_num < converted_num:
-                    converted_num -= value
-                else:
-                    converted_num += value
+    for char in reversed(roman_string):
+        value = roman_dict.get(char, 0)
+        if value < prev_value:
+            converted_num -= value
+        else:
+            converted_num += value
+        prev_value = value
     return converted_num
