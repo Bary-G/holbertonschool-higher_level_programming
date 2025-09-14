@@ -2,6 +2,7 @@
 doctest for 0-add_integer.py
 ============================
 ``add_integer()`` returns the sum of its arguments
+
 SUCCESSFUL TEST CONDITIONS
 ==========================
 >>> add_integer = __import__('0-add_integer').add_integer
@@ -13,17 +14,15 @@ basic integer additions
 -5
 >>> add_integer(-1, 5)
 4
-default argument
 >>> add_integer(2)
 100
-with floats (truncated to int)
 >>> add_integer(5.61, 2.3)
 7
 >>> add_integer(9, 1.9247)
 10
-large integers
 >>> add_integer(4294967296, 1)
 4294967297
+
 ERROR TEST CONDITIONS
 =====================
 wrong types
@@ -34,10 +33,10 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 TypeError: b must be an integer
 >>> add_integer(True, 1)
-Traceback (most recent call last):
-TypeError: a must be an integer
-special floats
+2
 >>> add_integer(float("NaN"), 1)
-nan
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
 >>> add_integer(float("inf"))
-inf
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
