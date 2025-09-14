@@ -19,6 +19,8 @@ SUCCESSFUL TEST CONDITIONS
 [[1.0]]
 >>> matrix_divided([[-2, -4], [-6, -8]], 2)
 [[-1.0, -2.0], [-3.0, -4.0]]
+>>> matrix_divided([[0,0, 0,0], [0,0, 0,0]], float("inf"))
+[[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0]]
 
 ERROR TEST CONDITIONS
 =====================
@@ -38,9 +40,6 @@ TypeError: Each row of the matrix must have the same size
 Traceback (most recent call last):
 TypeError: div must be a number
 >>> matrix_divided([[1, 2], [3, 4]], 0)
-Traceback (most recent call last):
-ZeroDivisionError: division by zero
->>> matrix_divided([[0,0, 0,0], [0,0, 0,0]], 0)
 Traceback (most recent call last):
 ZeroDivisionError: division by zero
 >>> matrix_divided([[1, 2], [3, 4]])
