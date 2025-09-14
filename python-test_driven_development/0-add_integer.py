@@ -3,6 +3,7 @@
 Module: A Python script file with functions.
 """
 
+
 def add_integer(a, b=98):
     """
     A function that adds 2 integers.
