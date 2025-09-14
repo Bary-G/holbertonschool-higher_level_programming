@@ -1,0 +1,43 @@
+============================
+doctest for 5-text_indentation.py
+============================
+``text_indentation()`` prints a square with the character #.
+
+SUCCESSFUL TEST CONDITIONS
+==========================
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("Bonjour. Comment ça va?")
+Bonjour.
+
+Comment ça va?
+
+>>> text_indentation("Salut: ça va bien.")
+Salut:
+
+ça va bien.
+
+>>> text_indentation("Bonjour à tous")
+Bonjour à tous
+>>> text_indentation("")
+
+>>> text_indentation("Hello\nWorld.")
+Hello
+World.
+
+
+>>> text_indentation(12)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(['H', 'i', '.'])
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(True)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
