@@ -1,0 +1,44 @@
+============================
+doctest for 3-say_my_name.py
+============================
+``say_my_name()`` prints My name is <first name> <last name>
+
+SUCCESSFUL TEST CONDITIONS
+==========================
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("Alice", "Dupont")
+My name is Alice Dupont
+>>> say_my_name("Jean")
+My name is Jean 
+>>> say_my_name("Marie", "")
+My name is Marie 
+>>> say_my_name("", "")
+My name is  
+>>> say_my_name("A", "B")
+My name is A B
+>>> say_my_name("O'Connor", "Smith")
+My name is O'Connor Smith
+>>> say_my_name("Renée", "Faÿ")
+My name is Renée Faÿ
+
+ERROR TEST CONDITIONS
+=====================
+>>> say_my_name(123, "Dupont")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(None, "Dupont")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(["Alice"], "Dupont")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name("Alice", 456)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> say_my_name("Alice", None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> say_my_name("Alice", ["Dupont"])
+Traceback (most recent call last):
+TypeError: last_name must be a string
