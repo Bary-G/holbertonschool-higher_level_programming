@@ -17,8 +17,9 @@ class Square():
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
-        if (not isinstance(position, tuple) or len(position) != 2 or
-            not all(isinstance(i, int) and i >= 0 for i in position)):
+        if not isinstance(position, tuple) or len(position) != 2:
+            raise TypeError(pos_err_ty)
+        elif not all(isinstance(i, int) and i >= 0 for i in position):
             raise TypeError(pos_err_ty)
         self._Square__size = size
         self._Square__position = position
@@ -54,8 +55,9 @@ class Square():
         A property to define the position
         """
         pos_err_ty = "position must be a tuple of 2 positive integers"
-        if (not isinstance(value, tuple) or len(value) != 2 or
-            not all(isinstance(i, int) and i >= 0 for i in value)):
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError(pos_err_ty)
+        elif not all(isinstance(i, int) and i >= 0 for i in value):
             raise TypeError(pos_err_ty)
         self._Square__position = value
 
@@ -74,5 +76,5 @@ class Square():
             print("")
             return
         lines = [" " * self._Square__position[0] + "#" * self._Square__size
-                for _ in range(self._Square__size)]
+                 for _ in range(self._Square__size)]
         print("\n" * self._Square__position[1] + "\n".join(lines))
