@@ -17,9 +17,9 @@ class Square():
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
-        if not isinstance(position, tuple) and len(position) == 2:
-            if all(isinstance(i, int) for i in position):
-                raise TypeError(pos_err_ty)
+        if (not isinstance(position, tuple) or len(position) != 2 or
+            not all(isinstance(i, int) and i >= 0 for i in position)):
+            raise TypeError(pos_err_ty)
         self._Square__size = size
         self._Square__position = position
 
@@ -54,9 +54,9 @@ class Square():
         A property to define the position
         """
         pos_err_ty = "position must be a tuple of 2 positive integers"
-        if not isinstance(value, tuple) and len(value) == 2:
-            if all(isinstance(i, int) for i in value):
-                raise TypeError(pos_err_ty)
+        if (not isinstance(value, tuple) or len(value) != 2 or
+            not all(isinstance(i, int) and i >= 0 for i in value)):
+            raise TypeError(pos_err_ty)
         self._Square__position = value
 
     def area(self):
@@ -73,6 +73,6 @@ class Square():
         if self._Square__size == 0:
             print("")
             return
-        print("\n" * self._Square__position[1], end="")
-        for _ in range(self._Square__size):
-            print(" " * self._Square__position[0] + "#" * self._Square__size)
+        lines = [" " * self._Square__position[0] + "#" * self._Square__size
+                for _ in range(self._Square__size)]
+        print("\n" * self._Square__position[1] + "\n".join(lines))
