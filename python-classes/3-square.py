@@ -17,6 +17,7 @@ class Square():
         elif size < 0:
             raise ValueError("size must be >= 0")
         self._Square__size = size
+
     def area(self):
         """
         A public instance method that returns the current square area
