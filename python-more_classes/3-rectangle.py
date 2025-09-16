@@ -94,4 +94,5 @@ class Rectangle():
         for _ in range(self._Rectangle__height):
             new_recatangle = new_recatangle + ("#" * self._Rectangle__width)
             new_recatangle = new_recatangle + "\n"
+        new_recatangle = new_recatangle[:-1]
         return new_recatangle
