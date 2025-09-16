@@ -91,8 +91,9 @@ class Rectangle():
         new_recatangle = ""
         if self._Rectangle__height == 0 or self._Rectangle__width == 0:
             new_recatangle = ""
-        for _ in range(self._Rectangle__height):
-            new_recatangle = new_recatangle + ("#" * self._Rectangle__width)
-            new_recatangle = new_recatangle + "\n"
-        new_recatangle = new_recatangle[:-1]
+        else:
+            for _ in range(self._Rectangle__height):
+                new_recatangle = new_recatangle + ("#" * self._Rectangle__width)
+                new_recatangle = new_recatangle + "\n"
+            new_recatangle = new_recatangle[:-1]
         return new_recatangle
