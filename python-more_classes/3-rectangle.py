@@ -83,12 +83,15 @@ class Rectangle():
         for _ in range(self._Rectangle__height):
             print("#" * self._Rectangle__width)
 
-    def str(self):
+    def __str__(self):
         """
-        A public instance method that prints in stdout the rectangle
+        A public instance method that returns the rectangle
         with the character #
         """
+        new_recatangle = ""
         if self._Rectangle__height == 0 or self._Rectangle__width == 0:
-            print("")
+            new_recatangle = ""
         for _ in range(self._Rectangle__height):
-            print("#" * self._Rectangle__width)
+            new_recatangle = new_recatangle + ("#" * self._Rectangle__width)
+            new_recatangle = new_recatangle + "\n"
+        return new_recatangle
