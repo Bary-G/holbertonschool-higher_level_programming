@@ -88,12 +88,12 @@ class Rectangle():
         A public instance method that returns the rectangle
         with the character #
         """
-        new_recatangle = ""
+        new_rectangle = ""
         if self._Rectangle__height == 0 or self._Rectangle__width == 0:
-            new_recatangle = ""
+            new_rectangle = ""
         else:
             for _ in range(self._Rectangle__height):
-                new_recatangle += ("#" * self._Rectangle__width)
-                new_recatangle += "\n"
-            new_recatangle = new_recatangle[:-1]
-        return new_recatangle
+                new_rectangle += ("#" * self._Rectangle__width)
+                new_rectangle += "\n"
+            new_rectangle = new_rectangle[:-1]
+        return new_rectangle
