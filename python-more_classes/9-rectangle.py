@@ -146,8 +146,6 @@ class Rectangle():
         Class method that returns a new Rectangle instance with
         width == height == size
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        return cls(size, size)
+        cls.__width = size
+        cls.__height = size
+        return Rectangle(cls.__width, cls.__height)
