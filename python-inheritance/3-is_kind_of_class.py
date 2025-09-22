@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+"""
+Module: A python Script that runs functions.
+"""
+
+
+def is_kind_of_class(obj, a_class):
+    """
+    if the object is an instance of, or if the object is an
+    instance of a class that inherited from, the specified
+    class ; otherwise False.
+    """
+    if not obj or obj is None:
+        return False
+    if isinstance(obj, a_class):
+        return True
+    else:
+        return False
