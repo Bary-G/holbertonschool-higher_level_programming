@@ -10,7 +10,7 @@ def is_same_class(obj, a_class):
     of the specified class ; otherwise False.
     """
     if not obj or obj is None:
-        raise Exception("obj is mandatory and must be not None")
+        return False
     if type(obj) is a_class:
         return True
     else:
