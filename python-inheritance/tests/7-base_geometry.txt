@@ -1,0 +1,67 @@
+============================
+doctest for 7-base_geometry.py
+============================
+``area()`` returns the area of the shape
+``integer_validator()`` validates if value is an integer
+
+TEST CONDITIONS
+==========================
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+>>> bg.integer_validator("width", 5)
+
+>>> bg.integer_validator("height", 10)
+
+>>> bg.integer_validator("size", 1)
+
+>>> bg.integer_validator("length", 100)
+
+>>> bg.integer_validator("radius", 7)
+
+>>> bg.integer_validator("side", 42)
+
+>>> bg.integer_validator("x", 5)
+
+>>> bg.integer_validator("dimension", 12)
+
+>>> bg.integer_validator("edge_length", 1)
+
+>>> bg.integer_validator("", 3)
+
+>>> bg.integer_validator("min_value", 1)
+
+>>> long_name = "a" * 1000
+
+>>> bg.integer_validator(long_name, 10)
+
+>>> bg.integer_validator("size$", 3)
+
+>>> bg.integer_validator("Δx", 4)
+
+>>> bg.integer_validator("", 2)
+
+>>> bg.integer_validator("huge", 10**12)
+
+>>> bg.integer_validator("length", "10")
+Traceback (most recent call last):
+TypeError: 10 must be an integer
+>>> bg.integer_validator("length", -5)
+Traceback (most recent call last):
+ValueError: -5 must be greater than 0
+>>> bg.integer_validator("length", 0)
+Traceback (most recent call last):
+ValueError: 0 must be greater than 0
+>>> bg.integer_validator(123, 10)
+Traceback (most recent call last):
+TypeError: name must be a string
+>>> bg.integer_validator("almost_zero", 0)
+Traceback (most recent call last):
+ValueError: 0 must be greater than 0
+>>> bg.integer_validator("negative_one", -1)
+Traceback (most recent call last):
+ValueError: -1 must be greater than 0
