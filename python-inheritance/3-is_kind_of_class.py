@@ -10,6 +10,4 @@ def is_kind_of_class(obj, a_class):
     instance of a class that inherited from, the specified
     class ; otherwise False.
     """
-    if obj is None or a_class is None:
-        return False
     return isinstance(obj, a_class)
