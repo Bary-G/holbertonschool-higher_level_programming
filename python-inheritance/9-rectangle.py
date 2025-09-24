@@ -9,7 +9,7 @@ class BaseGeometry:
 
     def area(self):
         """Raises an exception if not implemented in subclass."""
-        raise Exception("area() is not implemented") 
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
@@ -42,3 +42,4 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """Return the rectangle description"""
         return f"[Rectangle] {self.__width}/{self.__height}"
+
