@@ -57,10 +57,11 @@ class Square(Rectangle):
         """Returns the area of the square."""
         return self._Rectangle__width * self._Rectangle__height
 
-    def print(self):
+    def __print(self):
         """Display the square description"""
         print(f"[Rectangle] {self._Rectangle__width}/{self._Rectangle__height}")
 
     def __str__(self):
         """Return the square description"""
         return f"[Rectangle] {self._Rectangle__width}/{self._Rectangle__height}"
+
