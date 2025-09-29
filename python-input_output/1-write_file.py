@@ -1,14 +1,8 @@
 #!/usr/bin/python3
-"""
-Module : A Python file that tuns functions.
-"""
+"""Module: Provides a function to write text to a file."""
 
 
 def write_file(filename="", text=""):
-    """
-    Writes a string to a text file (UTF8) and
-    returns the number of characters written
-    """
+    """Writes a string to a UTF-8 text file and returns the number of characters written."""
     with open(filename, 'w', encoding='utf-8') as file:
-        count = file.write(text)
-    return count
+        return file.write(text)
