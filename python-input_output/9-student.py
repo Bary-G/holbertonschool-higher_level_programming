@@ -27,4 +27,8 @@ class Student:
         Return the dictionary description with simple data structure 
         for JSON serialization of an object
         """
-        return self.__dict__
+        return {
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "age": self.age
+        }
