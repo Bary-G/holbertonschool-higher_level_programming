@@ -20,7 +20,9 @@ def fetch_and_print_posts():
     """
     response = requests.get(url)
     print(f"Status Code: {response.status_code}")
-    print(response.json())
+    posts = response.json()
+    for post in posts:
+        print(post["title"])
     
 
 def fetch_and_save_posts():
