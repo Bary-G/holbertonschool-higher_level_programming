@@ -18,11 +18,14 @@ def fetch_and_print_posts():
     """
     Parse the fetched data into a JSON object.
     """
-    response = requests.get(url)
-    print(f"Status Code: {response.status_code}")
-    posts = response.json()
-    for post in posts:
-        print(post["title"])
+    try:
+        response = requests.get(url)
+        print(f"Status Code: {response.status_code}")
+        posts = response.json()
+        for post in posts:
+            print(post["title"])
+    except Exception:
+        print(f"Status Code: {response.status_code}")
     
 
 def fetch_and_save_posts():
@@ -30,11 +33,14 @@ def fetch_and_save_posts():
     Structure the data into a list of dictionaries, where each dictionary
     represents a post with keys and values for id, title, and body
     """
-    response = requests.get(url)
-    posts = response.json()
-    structured_posts = [
-        {"id": post["id"], "title": post["title"], "body": post["body"]}
-        for post in posts[:5]
-    ]
-    with open("posts.csv", "w", encoding="utf-8") as f:
-        json.dump(structured_posts, f, indent=4, ensure_ascii=False)
+    try:
+        response = requests.get(url)
+        posts = response.json()
+        filtered_posts = [
+            {"id": post["id"], "title": post["title"], "body": post["body"]}
+            for post in posts
+        ]
+        with open("posts.csv", "w", encoding="utf-8") as f:
+            json.dump(filtered_posts, f, indent=4, ensure_ascii=False)
+    except Exception:
+        print("An exception occured")
