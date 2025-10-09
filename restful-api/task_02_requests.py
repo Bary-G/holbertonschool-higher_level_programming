@@ -3,11 +3,11 @@
 Module : A Python file that runs functions.
 http : A library used for web functions.
 server : A module used for basic web server.
-json : A module used to convert data.
+csv : A module used to convert data.
 """
 import http.server
 import requests
-import json
+import csv
 
 url = "https://jsonplaceholder.typicode.com/posts"
 
@@ -40,7 +40,9 @@ def fetch_and_save_posts():
             {"id": post["id"], "title": post["title"], "body": post["body"]}
             for post in posts
         ]
-        with open("posts.csv", "w", encoding="utf-8") as f:
-            json.dump(filtered_posts, f, indent=4, ensure_ascii=False)
+        with open("posts.csv", "w", encoding="utf-8", newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=["id", "title", "body"])
+            writer.writeheader()
+            writer.writerows(filtered_posts)
     except Exception:
         print("An exception occured")
