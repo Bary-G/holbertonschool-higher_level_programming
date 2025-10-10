@@ -18,6 +18,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.end_headers()
             message = "Hello, this is a simple API!"
             self.wfile.write(message.encode("UTF8"))
+
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json; charset=UTF8")
@@ -25,6 +26,7 @@ class MyServer(BaseHTTPRequestHandler):
             data = {"name": "John", "age": 30, "city": "New York"}
             json_data = json.dumps(data)
             self.wfile.write(json_data.encode("UTF8"))
+
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "application/json; charset=UTF8")
@@ -32,8 +34,13 @@ class MyServer(BaseHTTPRequestHandler):
             info = {"version": "1.0", "description": "A simple API built with http.server"}
             json_info = json.dumps(info)
             self.wfile.write(json_info.encode("UTF8"))
+
         else:
-            return self.send_response(404)
+            self.send_response(404)
+            self.send_header("Content-type", "text/plain; charset=UTF8")
+            self.end_headers()
+            error_message = "Endpoint not found"
+            self.wfile.write(error_message.encode("UTF8"))
 
 
 host = "localhost"
