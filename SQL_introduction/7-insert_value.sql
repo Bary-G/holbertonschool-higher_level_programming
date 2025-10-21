@@ -1,4 +1,3 @@
 -- inserts a new row in the table
-ALTER TABLE first_table
-ADD id INT,
-ADD name VARCHAR(255);
+INSERT INTO first_table (id, name)
+VALUES (89, 'Best School');
