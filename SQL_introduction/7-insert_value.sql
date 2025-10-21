@@ -1,6 +1,4 @@
 -- inserts a new row in the table
 ALTER TABLE first_table
-ADD (
-    id INT,
-    name VARCHAR(255)
-);
+ADD id INT,
+ADD name VARCHAR(255);
