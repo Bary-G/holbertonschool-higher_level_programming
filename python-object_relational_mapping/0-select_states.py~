@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""
+Module: A python Script that runs functions.
+MySQLdb: A module used to interact with MySQL databases.
+"""
+import MySQLdb
+import sys
+
+if __name__ == "__main__":
+    
