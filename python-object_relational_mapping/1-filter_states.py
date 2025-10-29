@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Module: A Python script that filters all states starting by letter N from a MySQL database.
+Module: A Python script that filters all states starting by letter N
+from a MySQL database.
 """
 
 import sys
@@ -26,7 +27,12 @@ def main():
             db=db_name
         )
         cursor = db.cursor()
-        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        query = """
+            SELECT * FROM states
+            WHERE name LIKE 'N%'
+            ORDER BY id ASC
+        """
+        cursor.execute(query)
         for row in cursor.fetchall():
             print(row)
         cursor.close()
