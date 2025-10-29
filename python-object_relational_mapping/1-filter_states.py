@@ -29,7 +29,7 @@ def main():
         cursor = db.cursor()
         query = """
             SELECT * FROM states
-            WHERE name LIKE 'N%'
+            WHERE BINARY name LIKE 'N%'
             ORDER BY id ASC
         """
         cursor.execute(query)
