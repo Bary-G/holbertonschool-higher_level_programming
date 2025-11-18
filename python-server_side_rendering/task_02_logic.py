@@ -22,12 +22,7 @@ def contact():
 @app.route('/items')
 def items():
     with open('items.json', 'r', encoding='utf-8') as file:
-        itemList = json.load(file)
-    if not itemList:
-        message = "No items found"
-        return render_template('items.html', items=message)
-
-    return render_template('items.html', items=itemList)
+        return render_template('items.html', items=json.load(file))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
