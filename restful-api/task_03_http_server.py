@@ -21,11 +21,11 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
         elif self.path == "/data":
             self.send_response(200)
-            self.send_header("Content-type", "application/json; charset=UTF8")
+            self.send_header("Content-type", "application/json; charset=utf-8")
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             json_data = json.dumps(data)
-            self.wfile.write(json_data.encode("UTF8"))
+            self.wfile.write(json_data.encode("utf-8"))
         
         elif self.path == "/status":
             self.send_response(200)
