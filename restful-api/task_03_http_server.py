@@ -1,10 +1,4 @@
 #!/usr/bin/python3
-"""
-Module : A Python file that runs functions.
-http : A library used for web functions.
-server : A module used for basic web server.
-json : A library used for web functions.
-"""
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
@@ -21,11 +15,11 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
         elif self.path == "/data":
             self.send_response(200)
-            self.send_header("Content-type", "application/json; charset=utf-8")
+            self.send_header("Content-type", "application/json; charset=UTF-8")
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             json_data = json.dumps(data)
-            self.wfile.write(json_data.encode("utf-8"))
+            self.wfile.write(json_data.encode("UTF8"))
         
         elif self.path == "/status":
             self.send_response(200)
