@@ -9,7 +9,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
-class MyServer(BaseHTTPRequestHandler):
+class SimpleAPIHandler(BaseHTTPRequestHandler):
     """A basic HTML server"""
     def do_GET(self):
         if self.path == "/":
@@ -26,14 +26,13 @@ class MyServer(BaseHTTPRequestHandler):
             data = {"name": "John", "age": 30, "city": "New York"}
             json_data = json.dumps(data)
             self.wfile.write(json_data.encode("UTF8"))
-
-        elif self.path == "/info":
+        
+        elif self.path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "application/json; charset=UTF8")
+            self.send_header("Content-type", "text/plain; charset=UTF8")
             self.end_headers()
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
-            json_info = json.dumps(info)
-            self.wfile.write(json_info.encode("UTF8"))
+            message = "OK"
+            self.wfile.write(message.encode("UTF8"))
 
         else:
             self.send_response(404)
@@ -43,9 +42,8 @@ class MyServer(BaseHTTPRequestHandler):
             self.wfile.write(error_message.encode("UTF8"))
 
 
-host = "localhost"
-port = 8000
-server = HTTPServer((host, port), MyServer)
-print(f"Serveur HTTP lancé sur http://{host}:{port}")
-
-server.serve_forever()
+if __name__ == "__main__":
+    server_address = ('', 8000)
+    httpd = HTTPServer(server_address, SimpleAPIHandler)
+    print("Starting HTTP server on port 8000...")
+    httpd.serve_forever()
