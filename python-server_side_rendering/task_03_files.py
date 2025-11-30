@@ -1,34 +1,34 @@
 #!/usr/bin/env python3
-import json
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from flask import Flask, request, render_template
+import json, csv, os
 
-
-class SimpleAPIHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == "/":
-            self.send_response(200)
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            self.wfile.write("Hello, this is a simple API!")
-        elif self.path == "/data":
-            self.send_response(200)
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            data = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-        elif self.path == "/status":
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            self.wfile.write("OK")
+app = Flask(__name__)
+    
+@app.route("/products")
+def products():
+    source = request.args.get("source")
+    productId = request.args.get("id")
+    filename = ""
+    if source == "json":
+        filename = "products.json"
+        filepath = os.path.join(app.root_path, filename)
+        with open(filepath) as f:
+            data = json.load(f)
+    elif source == "csv":
+        filename = "products.csv"
+        filepath = os.path.join(app.root_path, filename)
+        with open(filepath) as f:
+            data = list(csv.DictReader(f))
+    else:
+        return render_template("product_display.html", error="Wrong source")
+    if productId:
+        productId = int(productId)
+        filtered = [product for product in data if int(product["id"]) == productId]
+        if filtered:
+            return render_template("product_display.html", products=filtered)
         else:
-            self.send_response(404)
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            self.wfile.write("Endpoint not found")
+            return render_template("product_display.html", error="Product not found")
+    return render_template('product_display.html', products=data)
 
 if __name__ == "__main__":
-    server_address = ('', 8000)
-    httpd = HTTPServer(server_address, SimpleAPIHandler)
-    print("Starting HTTP server on port 8000...")
-    httpd.serve_forever()
+    app.run(debug=True, port=5000)
