@@ -5,9 +5,13 @@
 </head>
 <body>
     <ul>
-        {% for item in items %}
-            <li>{{ item }}</li>
-        {% endfor %}
+        {% if items %}
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        {% else %}
+            <p>No items found</p>
+        {% endif %}
     </ul>
 </body>
 </html>
