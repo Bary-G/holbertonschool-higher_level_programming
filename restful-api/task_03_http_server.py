@@ -8,7 +8,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain; charset=UTF8")
+            self.send_header("Content-type", "text/plain; charset=UTF-8")
             self.end_headers()
             message = "Hello, this is a simple API!"
             self.wfile.write(message.encode("UTF8"))
@@ -23,14 +23,14 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain; charset=UTF8")
+            self.send_header("Content-type", "text/plain; charset=UTF-8")
             self.end_headers()
             message = "OK"
             self.wfile.write(message.encode("UTF8"))
 
         elif self.path == "/info":
             self.send_response(200)
-            self.send_header("Content-type", "application/json; charset=UTF8")
+            self.send_header("Content-type", "application/json; charset=UTF-8")
             self.end_headers()
             info = {"version": "1.0", "description": "A simple API built with http.server"}
             json_info = json.dumps(info)
@@ -38,7 +38,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header("Content-type", "text/plain; charset=UTF8")
+            self.send_header("Content-type", "text/plain; charset=UTF-8")
             self.end_headers()
             error_message = "Endpoint not found"
             self.wfile.write(error_message.encode("UTF8"))
